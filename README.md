@@ -1,6 +1,5 @@
-- 👋 Hi, I’m @Emos21
-- 👀 I’m interested in Web evelopment
-- 🌱 I’m currently learning node.js
+- 👋 Hi, I’m Emos
+- 👀 I’m interested in Web development
 - 📫 Contact me on emosmwangi@protonmail.com
 
 <!---
