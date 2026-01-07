@@ -51,7 +51,7 @@ I build scalable backend systems that handle millions of records and thousands o
 
 - Email: emosmwangi@gmail.com
 - Portfolio: [emos21.github.io/Emos](https://emos21.github.io/Emos/)
-- LinkedIn: [Connect with me](https://linkedin.com)
+- LinkedIn: [linkedin.com/in/amos-mwangi-backend-developer](https://www.linkedin.com/in/amos-mwangi-backend-developer)
 
 ---
 
