@@ -50,17 +50,42 @@ else
   ok "plate is whole without animation"
 fi
 
+echo "stack ticker"
+if python3 -c 'import xml.etree.ElementTree as E; E.parse("assets/stack.svg")' 2>/dev/null; then
+  ok "assets/stack.svg parses"
+else
+  bad "assets/stack.svg is not valid XML"
+fi
+tmp=$(mktemp -t stack-XXXX.svg)
+python3 scripts/stack_svg.py "$tmp" >/dev/null
+diff -q "$tmp" assets/stack.svg >/dev/null \
+  && ok "assets/stack.svg is current" \
+  || bad "assets/stack.svg differs from scripts/stack_svg.py output"
+rm -f "$tmp"
+chips=$(grep -c 'class="k"' assets/stack.svg)
+items=$(python3 -c 'import sys; sys.path.insert(0, "scripts"); import stack_svg; print(len(stack_svg.ITEMS))')
+if [ "$chips" -ge $((items * 2)) ]; then
+  ok "$chips chips carry $items items, enough copies for a seamless loop"
+else
+  bad "$chips chips for $items items; the loop will show a gap"
+fi
+grep -q 'animation: run' assets/stack.svg && ok "ticker animation present" || bad "ticker animation missing"
+grep -q 'prefers-reduced-motion' assets/stack.svg && ok "ticker reduced-motion gate present" || bad "no reduced-motion gate in the ticker"
+grep -q 'prefers-color-scheme' assets/stack.svg && ok "ticker dark-scheme fill present" || bad "no dark-scheme fill in the ticker"
+for label in Python Go Django FastAPI PostgreSQL Docker PHP TypeScript React; do
+  grep -q ">$label<" assets/stack.svg || bad "ticker is missing $label"
+done
+ok "every named item is in the ticker"
+
 echo "ascii plate matches generator"
 if diff -q <(python3 scripts/ascii.py) assets/portrait.txt >/dev/null; then
   ok "assets/portrait.txt is current"
 else
   bad "assets/portrait.txt differs from scripts/ascii.py output"
 fi
-if grep -q 'assets/portrait.svg' README.md; then
-  ok "README shows the generated plate"
-else
-  bad "README does not reference assets/portrait.svg"
-fi
+for asset in assets/portrait.svg assets/stack.svg; do
+  grep -q "$asset" README.md && ok "README shows $asset" || bad "README does not reference $asset"
+done
 
 echo "outbound links"
 for url in $(grep -oE 'https://[a-zA-Z0-9./_#?=-]+' README.md | sort -u); do

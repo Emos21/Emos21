@@ -14,7 +14,8 @@ publishing surface, not an application.
   photograph, or a dithered plate of one, is not.
 - No PNG, JPEG or GIF belongs in this repo. `assets/portrait.svg` is type, not a bitmap: it
   is the same characters, with the cell geometry fixed so a stylesheet cannot stretch the
-  face. The only other images the README loads are the six stack badges from shields.io.
+  face. `assets/stack.svg` is the stack as an infinite ticker, also type and hairlines. The
+  README loads nothing from a third party: both images are in this repo.
 
 ## Rules
 
@@ -25,8 +26,12 @@ publishing surface, not an application.
   at `opacity: 0`; the hidden state comes from a backwards fill. `prefers-reduced-motion:
   reduce` shows everything at once, and `prefers-color-scheme: dark` switches the ink. All
   three are asserted by the checks.
-- **One motion idea.** The plate printing itself is the whole animation. Nothing else on the
-  page moves.
+- **Two motions, ranked.** The plate printing itself is the signature and it runs once. The
+  stack ticker is the quiet secondary: hairline chips, low contrast, 46 pixels a second, so
+  it reads as drift rather than as a demand for attention. Nothing else moves.
+- **Motion lives inside the images.** A README carries no CSS and no JavaScript, so any
+  animation has to be a stylesheet inside an SVG. That is the only mechanism available and
+  the reason both assets are SVG rather than markdown.
 - **Every claim is verifiable.** Numbers come from the GitHub API, from a repository, or
   from a system that is actually in production. Nothing is estimated upward, and nothing
   goes in that Amos cannot defend in an interview.
