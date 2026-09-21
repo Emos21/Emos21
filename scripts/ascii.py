@@ -18,4 +18,9 @@ lines = ["".join(RAMP[min(len(RAMP) - 1, px[x, y] * len(RAMP) // 256)]
 # drop the solid block where the black shirt saturates to one character
 while lines and lines[-1].count(RAMP[0]) > COLS * 0.88:
     lines.pop()
-print("\n".join(l.rstrip() for l in lines))
+lines = [l.rstrip() for l in lines]
+while lines and not lines[0].strip():      # no empty rows at the edges
+    lines.pop(0)
+while lines and not lines[-1].strip():
+    lines.pop()
+print("\n".join(lines))
