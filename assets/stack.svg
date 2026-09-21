@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 52"
+     width="660" height="52" role="img"
+     aria-label="Stack, scrolling: Python, Go, Django, FastAPI, PostgreSQL, Docker, PHP, TypeScript, React">
+  <style>
+    text {
+      font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+                   "DejaVu Sans Mono", "Liberation Mono", monospace;
+      font-size: 15.00px;
+      fill: #1F2328;
+    }
+    .k { fill: none; stroke: #D0D7DE; stroke-width: 1; }
+    /* The strip sits at its start position when nothing animates, so the
+       first items are readable even then. */
+    .strip { animation: run 17.8s linear infinite; }
+    @keyframes run {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-819.0px); }
+    }
+    @media (prefers-color-scheme: dark) {
+      text { fill: #E6EDF3; }
+      .k { stroke: #3D444D; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .strip { animation: none; }
+    }
+  </style>
+  <defs>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.067" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="0.933" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="edges"><rect width="660" height="52" fill="url(#fade)"/></mask>
+  </defs>
+  <g mask="url(#edges)">
+    <g class="strip">
+      <rect class="k" x="0.0" y="11.0" width="80.0" height="30"/><text x="13.0" y="31.2" textLength="54.0" lengthAdjust="spacingAndGlyphs">Python</text>
+      <rect class="k" x="90.0" y="11.0" width="44.0" height="30"/><text x="103.0" y="31.2" textLength="18.0" lengthAdjust="spacingAndGlyphs">Go</text>
+      <rect class="k" x="144.0" y="11.0" width="80.0" height="30"/><text x="157.0" y="31.2" textLength="54.0" lengthAdjust="spacingAndGlyphs">Django</text>
+      <rect class="k" x="234.0" y="11.0" width="89.0" height="30"/><text x="247.0" y="31.2" textLength="63.0" lengthAdjust="spacingAndGlyphs">FastAPI</text>
+      <rect class="k" x="333.0" y="11.0" width="116.0" height="30"/><text x="346.0" y="31.2" textLength="90.0" lengthAdjust="spacingAndGlyphs">PostgreSQL</text>
+      <rect class="k" x="459.0" y="11.0" width="80.0" height="30"/><text x="472.0" y="31.2" textLength="54.0" lengthAdjust="spacingAndGlyphs">Docker</text>
+      <rect class="k" x="549.0" y="11.0" width="53.0" height="30"/><text x="562.0" y="31.2" textLength="27.0" lengthAdjust="spacingAndGlyphs">PHP</text>
+      <rect class="k" x="612.0" y="11.0" width="116.0" height="30"/><text x="625.0" y="31.2" textLength="90.0" lengthAdjust="spacingAndGlyphs">TypeScript</text>
+      <rect class="k" x="738.0" y="11.0" width="71.0" height="30"/><text x="751.0" y="31.2" textLength="45.0" lengthAdjust="spacingAndGlyphs">React</text>
+      <rect class="k" x="819.0" y="11.0" width="80.0" height="30"/><text x="832.0" y="31.2" textLength="54.0" lengthAdjust="spacingAndGlyphs">Python</text>
+      <rect class="k" x="909.0" y="11.0" width="44.0" height="30"/><text x="922.0" y="31.2" textLength="18.0" lengthAdjust="spacingAndGlyphs">Go</text>
+      <rect class="k" x="963.0" y="11.0" width="80.0" height="30"/><text x="976.0" y="31.2" textLength="54.0" lengthAdjust="spacingAndGlyphs">Django</text>
+      <rect class="k" x="1053.0" y="11.0" width="89.0" height="30"/><text x="1066.0" y="31.2" textLength="63.0" lengthAdjust="spacingAndGlyphs">FastAPI</text>
+      <rect class="k" x="1152.0" y="11.0" width="116.0" height="30"/><text x="1165.0" y="31.2" textLength="90.0" lengthAdjust="spacingAndGlyphs">PostgreSQL</text>
+      <rect class="k" x="1278.0" y="11.0" width="80.0" height="30"/><text x="1291.0" y="31.2" textLength="54.0" lengthAdjust="spacingAndGlyphs">Docker</text>
+      <rect class="k" x="1368.0" y="11.0" width="53.0" height="30"/><text x="1381.0" y="31.2" textLength="27.0" lengthAdjust="spacingAndGlyphs">PHP</text>
+      <rect class="k" x="1431.0" y="11.0" width="116.0" height="30"/><text x="1444.0" y="31.2" textLength="90.0" lengthAdjust="spacingAndGlyphs">TypeScript</text>
+      <rect class="k" x="1557.0" y="11.0" width="71.0" height="30"/><text x="1570.0" y="31.2" textLength="45.0" lengthAdjust="spacingAndGlyphs">React</text>
+      <rect class="k" x="1638.0" y="11.0" width="80.0" height="30"/><text x="1651.0" y="31.2" textLength="54.0" lengthAdjust="spacingAndGlyphs">Python</text>
+      <rect class="k" x="1728.0" y="11.0" width="44.0" height="30"/><text x="1741.0" y="31.2" textLength="18.0" lengthAdjust="spacingAndGlyphs">Go</text>
+      <rect class="k" x="1782.0" y="11.0" width="80.0" height="30"/><text x="1795.0" y="31.2" textLength="54.0" lengthAdjust="spacingAndGlyphs">Django</text>
+      <rect class="k" x="1872.0" y="11.0" width="89.0" height="30"/><text x="1885.0" y="31.2" textLength="63.0" lengthAdjust="spacingAndGlyphs">FastAPI</text>
+      <rect class="k" x="1971.0" y="11.0" width="116.0" height="30"/><text x="1984.0" y="31.2" textLength="90.0" lengthAdjust="spacingAndGlyphs">PostgreSQL</text>
+      <rect class="k" x="2097.0" y="11.0" width="80.0" height="30"/><text x="2110.0" y="31.2" textLength="54.0" lengthAdjust="spacingAndGlyphs">Docker</text>
+      <rect class="k" x="2187.0" y="11.0" width="53.0" height="30"/><text x="2200.0" y="31.2" textLength="27.0" lengthAdjust="spacingAndGlyphs">PHP</text>
+      <rect class="k" x="2250.0" y="11.0" width="116.0" height="30"/><text x="2263.0" y="31.2" textLength="90.0" lengthAdjust="spacingAndGlyphs">TypeScript</text>
+      <rect class="k" x="2376.0" y="11.0" width="71.0" height="30"/><text x="2389.0" y="31.2" textLength="45.0" lengthAdjust="spacingAndGlyphs">React</text>
+    </g>
+  </g>
+</svg>
