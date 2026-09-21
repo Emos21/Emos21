@@ -4,7 +4,7 @@ from PIL import Image, ImageOps, ImageEnhance
 
 SRC   = "/home/mg/Downloads/Images/mimi.jpeg"
 CROP  = (98, 14, 414, 448)
-COLS  = 80
+COLS  = 60
 RAMP  = "@%#*+=-:. "          # dark -> light
 
 im = Image.open(SRC).convert("L").crop(CROP)
