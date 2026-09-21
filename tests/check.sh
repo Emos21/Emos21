@@ -87,6 +87,13 @@ for asset in assets/portrait.svg assets/stack.svg; do
   grep -q "$asset" README.md && ok "README shows $asset" || bad "README does not reference $asset"
 done
 
+echo "contact hygiene"
+if grep -rqE 'signal\.me/#' README.md CLAUDE.md MAIN.md; then
+  bad "a signal.me share link is in the repo; publish the username, not the token"
+else
+  ok "no signal.me share token published"
+fi
+
 echo "outbound links"
 for url in $(grep -oE 'https://[a-zA-Z0-9./_#?=-]+' README.md | sort -u); do
   code=$(curl -s -o /dev/null -L --max-time 20 -A "$UA" -w '%{http_code}' "$url")
