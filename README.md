@@ -29,15 +29,18 @@ Tools I wrote to think about systems rather than to ship features: [**chronos**]
 
 ## Stack
 
-![Python](https://img.shields.io/badge/Python-12110F?style=flat-square&logo=python&logoColor=F5F2EA) ![Go](https://img.shields.io/badge/Go-12110F?style=flat-square&logo=go&logoColor=F5F2EA) ![Django](https://img.shields.io/badge/Django-12110F?style=flat-square&logo=django&logoColor=F5F2EA) ![FastAPI](https://img.shields.io/badge/FastAPI-12110F?style=flat-square&logo=fastapi&logoColor=F5F2EA) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12110F?style=flat-square&logo=postgresql&logoColor=F5F2EA) ![Docker](https://img.shields.io/badge/Docker-12110F?style=flat-square&logo=docker&logoColor=F5F2EA)
+<p align="center">
+  <img src="assets/stack.svg" width="660"
+       alt="Stack, scrolling right to left: Python, Go, Django, FastAPI, PostgreSQL, Docker, PHP, TypeScript, React">
+</p>
 
 | Layer | What I reach for |
 |---|---|
-| **Languages** | Python, Go, TypeScript, SQL, Dart |
+| **Languages** | Python, Go, TypeScript, PHP, SQL, Dart |
 | **Backend** | Django, Django REST Framework, FastAPI, Celery, REST and GraphQL |
 | **Data** | PostgreSQL, Redis, MongoDB, SQLite |
 | **Infrastructure** | Docker, Linux, Nginx, GitHub Actions, VPS and cPanel deploys |
-| **Frontend, when I own the whole thing** | React, Next.js, Vue, Tailwind |
+| **Frontend, when I own the whole thing** | React, Next.js, Vue, TypeScript, Tailwind |
 
 ## By the numbers
 
