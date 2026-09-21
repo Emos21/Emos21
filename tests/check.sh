@@ -15,20 +15,14 @@ else
   bad "emoji or pictograph in README.md"
 fi
 
-echo "assets"
-check_png() {
-  if [ ! -f "$1" ]; then bad "$1 missing"; return; fi
-  read -r w h < <(python3 -c "from PIL import Image;i=Image.open('$1');print(i.width,i.height)")
-  if [ "$w" = "$2" ] && [ "$h" = "$3" ]; then ok "$1 ${w}x${h}"; else bad "$1 is ${w}x${h}, expected $2x$3"; fi
-}
-check_png assets/banner.png 3200 1280
-check_png assets/banner-compact.png 2000 1200
-check_png assets/portrait.png 560 966
-check_png assets/portrait-compact.png 468 852
-
-for ref in $(grep -oE '(src|srcset)="[^"]+"' README.md | cut -d'"' -f2); do
-  [ -f "$ref" ] && ok "referenced $ref" || bad "referenced $ref is missing"
-done
+echo "the plate is text, not an image"
+if grep -qE '<img|srcset=|\.png' README.md; then
+  bad "README references an image; the portrait must stay 60 columns of text"
+else
+  ok "no image files in the README"
+fi
+width=$(awk '{ if (length($0) > m) m = length($0) } END { print m }' assets/portrait.txt)
+[ "$width" -le 60 ] && ok "plate is ${width} columns wide" || bad "plate is ${width} columns, expected 60 or fewer"
 
 echo "ascii plate matches generator"
 if diff -q <(python3 scripts/ascii.py) assets/portrait.txt >/dev/null; then
