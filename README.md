@@ -57,9 +57,11 @@ Tools I wrote to think about systems rather than to ship features: [**chronos**]
 
 ## Contact
 
-- **Email:** emosmwangi@gmail.com
+- **Email:** emosmwangi@gmail.com, fastest for roles
 - **Portfolio:** [amosmwangi.com](https://amosmwangi.com)
 - **LinkedIn:** [amos-mwangi-backend-developer](https://www.linkedin.com/in/amos-mwangi-backend-developer)
+- **WhatsApp:** [+254 768 349 005](https://wa.me/254768349005), for client work
+- **Signal:** AmosMwangi.82
 
 Open to remote backend and platform engineering roles. Nairobi, UTC+3, which overlaps a full European day and a US morning.
 
