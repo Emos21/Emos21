@@ -1,42 +1,7 @@
-```
-                            ...
-                      .=*#%@@@@@@@%*-..
-                   -#@@@@@@@@@@@@@@@@@@*-
-                :*@@@@@@@@@@@@@@@@@@@@@@@@*.
-              -#@@@@@%%%%%#####%%%%@@@@@@@@@*:
-             *@@@%################%%%%%%%@@@@@*
-            *@@@##%%%%####*******#####%%##%@@@@*
-           +@@@##%%##**+++++++++++****###%##%@@@=
-          +@@@%##%#*+=--:---====----==+*##%%#%@@@.
-         .@@@%####**+=----------::::--=+*##%%#@@@#
-         +@@%#####**++====-----:--===++**##%%#%@@@.
-         %@%#######**++=--::::::---=+++**######%%@-
-        .%%#***#%#**+++=--:..:::::-==+**##%%#*##%@+
-        :@%#***#+=---==----:::.::----==--=+*#***#@*
-        :@%#+*+++***###*+=-----==--=+******++++*#@+
-         *@#***+#@#+##==********##*+--%%#*%#*++*@@:
-      .+*+@###**+**==+=+*##*++++*#%#+=++=+#####*@*-+:
-      =@###*##**++==+****+++*++*****##+++++*###*##%@#
-      -@*=**#**+++++++=--+**+==+***+=+****++*##**+#@:
-       *%*#+***+===---:-====-...=++======++*******%=
-        *@@*****=-:::::==-+++--=**-=+=-:-=+*****@%-
-         *%%****+=-:::--=+*##*+#%##*+=---=++***#%:
-         :#%##***++=--+#%%%#####%%@@%#*++++***##=
-          ..+#*****++%@@#*=--====+*#%@@%*****#=
-             +#******#%@#*+++++++**#%@%%*####+
-              +#*****==***+=-----=+**#***###=
-               ******#+==++++++++*++++#####*
-               +#######+=--------===+*@####*
-               =%%@@@@@%+==-----===*#@@@@%%#.
-               =%#%@@@@@@%**#**#%%%@@@@@@%%#%+
-              -%####%@@@@@@@@@@@@@@@@@@@%%%%@@+
-              %@%##**%@@@@@@@@@@@@@@@@@@%##%@@@-
-             -@@@%*+++++*######%%%%%###**#%@@@@@:
-            +@@@@@@%*=-==========++++=++#@@@@@@@%.
-          .=@@@@@@@@@%*=---------=====*%@@@@@@@@@%-.
-     .:=*%@@@@@@@@@@@@@@%*=-:::----+#@@@@@@@@@@@@@@@%*-.
-.:=*%@@@@@@@@@@@@@@@@@@@@@@%*=--=*%@@@@@@@@@@@@@@@@@@@@@%+-.
-```
+<p align="center">
+  <img src="assets/portrait.svg" width="660"
+       alt="Portrait of Amos Mwangi drawn in code symbols, printed line by line">
+</p>
 
 # Amos Mwangi
 
@@ -53,10 +18,12 @@
 | System | What it does | The hard part | Stack |
 |---|---|---|---|
 | [**Arizona Sunshine Portal**](https://github.com/Cooperation-org/Az-Sunshine) | Public portal over Arizona campaign finance filings | 12.6M records kept queryable and correct through repeated bulk ingests | Django, PostgreSQL, React |
-| **GoVerde Errands Marketplace** | Two-sided errands marketplace with live chat and escrow | WebSocket sessions, escrow state machine, role-based access across three user types | FastAPI, PostgreSQL, TypeScript |
-| **Tensor Marketplace** | Digital goods marketplace with paid download delivery | Stripe webhooks reconciled against signed, expiring file URLs | Django REST Framework, Next.js |
+| **ClearDD** | Financial due diligence, automated: builds the statements on the client's reported basis, computes EBITDA, working capital and trailing twelve months, flags anomalies and produces the workbook, deck and PDF that advisers deliver | Tying the reported basis line for line, and carrying add-backs through to the deck without a number drifting | Django, DRF, Celery, PostgreSQL, React |
+| **ProcureCrawl**, at IntegralMASS | Opportunity intelligence for Arizona investors: procurement contracts, commercial property, businesses for sale and economic data, aggregated, scored and delivered as reports | Scheduled crawlers over sources that disagree with each other, and scoring an investment group will act on | Python, Celery, Next.js |
+| **Extreme POS** | Point of sale running a Nairobi print shop: sell, invoices, purchases, stock reports, suppliers, debts, accounting, shift handover | Twelve modules rebuilt from observation, then changed week to week against the live database the shop trades on | PHP 8, SQLite, vanilla JS |
 | [**Classy Carry POS**](https://github.com/Emos21/classycarry-erp) | Point of sale and stock control for a leather goods retailer | M-Pesa STK push, offline-tolerant SQLite, staff role gating | PHP 8, SQLite, M-Pesa Daraja |
-| **Amber Quill** | Age-restricted liquor storefront | Two payment processors, age gate, per-region delivery rules | React, Node.js |
+
+Lead developer on ProcureCrawl. Earlier product work: **GoVerde Errands Marketplace** (FastAPI, WebSocket chat, escrow payments, role-based access) and **Tensor Marketplace** (Django REST, Stripe webhooks, signed expiring file delivery).
 
 Tools I wrote to think about systems rather than to ship features: [**chronos**](https://github.com/Emos21/chronos), boolean algebra over cron schedules, in Dart. [**subnetics**](https://github.com/Emos21/subnetics), a CIDR buddy allocator with a live fragmentation treemap. [**MpesaGuard**](https://github.com/Emos21/MpesaGuard), mobile money transaction screening.
 
@@ -93,6 +60,8 @@ Tools I wrote to think about systems rather than to ship features: [**chronos**]
 
 Open to remote backend and platform engineering roles. Nairobi, UTC+3, which overlaps a full European day and a US morning.
 
-The portrait above is not an image file. It is 60 columns of text, generated from a
-photograph by [`scripts/ascii.py`](scripts/ascii.py) and stored in
-[`assets/portrait.txt`](assets/portrait.txt).
+The portrait is not a photograph. It is 60 columns of characters, generated from one by
+[`scripts/ascii.py`](scripts/ascii.py), kept as text in
+[`assets/portrait.txt`](assets/portrait.txt), and set in type by
+[`scripts/portrait_svg.py`](scripts/portrait_svg.py), which prints it a line at a time and
+holds a cursor at the end. It stops moving if your system asks for reduced motion.
