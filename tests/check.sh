@@ -15,14 +15,40 @@ else
   bad "emoji or pictograph in README.md"
 fi
 
-echo "the plate is text, not an image"
-if grep -qE '<img|srcset=|\.png' README.md; then
-  bad "README references an image; the portrait must stay 60 columns of text"
+echo "the plate is characters, not a photograph"
+if grep -qE '\.png|\.jpe?g|\.gif' README.md; then
+  bad "README references a raster image; the portrait must stay characters"
 else
-  ok "no image files in the README"
+  ok "no raster images in the README"
 fi
 width=$(awk '{ if (length($0) > m) m = length($0) } END { print m }' assets/portrait.txt)
 [ "$width" -le 60 ] && ok "plate is ${width} columns wide" || bad "plate is ${width} columns, expected 60 or fewer"
+
+echo "animated plate"
+if python3 -c 'import xml.etree.ElementTree as E; E.parse("assets/portrait.svg")' 2>/dev/null; then
+  ok "assets/portrait.svg parses"
+else
+  bad "assets/portrait.svg is not valid XML"
+fi
+tmp=$(mktemp -t plate-XXXX.svg)
+PYTHONPATH=scripts python3 scripts/portrait_svg.py "$tmp" >/dev/null
+if diff -q "$tmp" assets/portrait.svg >/dev/null; then
+  ok "assets/portrait.svg is current"
+else
+  bad "assets/portrait.svg differs from scripts/portrait_svg.py output"
+fi
+rm -f "$tmp"
+rows=$(grep -c 'class="r"' assets/portrait.svg)
+plate_rows=$(wc -l < assets/portrait.txt)
+[ "$rows" = "$plate_rows" ] && ok "svg carries all $rows rows" || bad "svg has $rows rows, plate has $plate_rows"
+grep -q 'prefers-reduced-motion' assets/portrait.svg && ok "reduced-motion gate present" || bad "no reduced-motion gate in the svg"
+grep -q 'prefers-color-scheme' assets/portrait.svg && ok "dark-scheme fill present" || bad "no dark-scheme fill in the svg"
+grep -q 'animation: print' assets/portrait.svg && ok "line-by-line print animation present" || bad "print animation missing"
+if grep -qE '\.(r|p)[^{]*\{[^}]*opacity: *0' assets/portrait.svg; then
+  bad "a row starts at opacity 0; the plate must be whole when animation never runs"
+else
+  ok "plate is whole without animation"
+fi
 
 echo "ascii plate matches generator"
 if diff -q <(python3 scripts/ascii.py) assets/portrait.txt >/dev/null; then
@@ -30,10 +56,10 @@ if diff -q <(python3 scripts/ascii.py) assets/portrait.txt >/dev/null; then
 else
   bad "assets/portrait.txt differs from scripts/ascii.py output"
 fi
-if grep -qF "$(sed -n '20p' assets/portrait.txt)" README.md; then
-  ok "README embeds the current plate"
+if grep -q 'assets/portrait.svg' README.md; then
+  ok "README shows the generated plate"
 else
-  bad "README ASCII block is stale, re-embed assets/portrait.txt"
+  bad "README does not reference assets/portrait.svg"
 fi
 
 echo "outbound links"

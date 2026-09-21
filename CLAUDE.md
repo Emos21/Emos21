@@ -7,18 +7,26 @@ publishing surface, not an application.
 ## What it is
 
 - `README.md` is the profile page. Everything else exists to produce it.
-- The portrait at the top is **not an image file**. It is 60 columns of text, generated from
-  a photograph by `scripts/ascii.py` and stored in `assets/portrait.txt`, then pasted into
-  the fenced block at the top of the README. A picture drawn in code symbols is the point of
-  the page; a photograph, or a rendered plate of a photograph, is not.
-- No PNG, SVG or GIF belongs in this repo. The only images the README loads are the six
-  stack badges from shields.io.
+- The portrait at the top is **characters, not a photograph**. `scripts/ascii.py` turns the
+  source photo into 60 columns of text (`assets/portrait.txt`), and
+  `scripts/portrait_svg.py` sets that text in an SVG that prints itself one line at a time
+  and holds a cursor at the end. A picture drawn in code symbols is the point of the page; a
+  photograph, or a dithered plate of one, is not.
+- No PNG, JPEG or GIF belongs in this repo. `assets/portrait.svg` is type, not a bitmap: it
+  is the same characters, with the cell geometry fixed so a stylesheet cannot stretch the
+  face. The only other images the README loads are the six stack badges from shields.io.
 
 ## Rules
 
-- **The portrait stays text.** 60 columns, from `scripts/ascii.py`. If the crop or ramp
-  changes, regenerate `assets/portrait.txt` and re-paste the block; `tests/check.sh` fails
-  when the two drift apart.
+- **The portrait stays characters.** 60 columns, from `scripts/ascii.py`. Change the crop or
+  the ramp and both `assets/portrait.txt` and `assets/portrait.svg` must be regenerated;
+  `tests/check.sh` fails when they drift apart.
+- **Motion has gates.** The plate must be whole when no animation runs, so no row may start
+  at `opacity: 0`; the hidden state comes from a backwards fill. `prefers-reduced-motion:
+  reduce` shows everything at once, and `prefers-color-scheme: dark` switches the ink. All
+  three are asserted by the checks.
+- **One motion idea.** The plate printing itself is the whole animation. Nothing else on the
+  page moves.
 - **Every claim is verifiable.** Numbers come from the GitHub API, from a repository, or
   from a system that is actually in production. Nothing is estimated upward, and nothing
   goes in that Amos cannot defend in an interview.
